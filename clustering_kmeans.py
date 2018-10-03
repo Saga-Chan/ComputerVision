@@ -10,7 +10,7 @@ plt.axis("off")
 plt.imshow(image)
 
 image = image.reshape((image.shape[0] * image.shape[1], 3))
-clt = KMeans(n_clusters=n_clusters)
+clt = KMeans(n_clusters=5)
 clt.fit(image)
 
 

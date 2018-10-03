@@ -3,15 +3,16 @@ import numpy as np
 from IPython.display import display
 from sklearn.neighbors import KNeighborsClassifier
 
-basedir_data = "./data/"
-rel_path = basedir_data + "cifar-10-batches-py/"
+# basedir_data = "./data/"
+# rel_path = basedir_data + "cifar-10-batches-py/"
+rel_path = "images/cifar-10-batches-py/"
 
 
 # Désérialiser les fichiers image afin de permettre l’accès aux données et aux labels:
 def unpickle(file):
     import pickle
     with open(file, 'rb') as fo:
-        dict = pickle.load(fo)
+        dict = pickle.load(fo, encoding='bytes')
     return dict
 
 
@@ -66,7 +67,7 @@ for i in range(0, 10):
 
 
 def pred_label_fn(i, original):
-    return original + '::' + meta[YPred_soa[i]].decode('utf-8')
+    return original + '::' + meta[YPred[i]].decode('utf-8')
 
 
 data_point_no = 10
