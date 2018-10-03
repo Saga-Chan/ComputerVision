@@ -2,16 +2,18 @@ import cv2
 from matplotlib import pyplot as plt
 
 waves = cv2.imread('images/waves.jpg', cv2.IMREAD_GRAYSCALE)
-histo_1 = cv2.calcHist([waves], None, None, [256], [0, 256])
+beach = cv2.imread('images/beach.jpg', cv2.IMREAD_GRAYSCALE)
+# cv2.calcHist(images, channels, mask, histSize, ranges[, hist[, accumulate]]) → hist
+histo_1 = cv2.calcHist([waves, beach], 2, None, [256], [0, 256])
 plt.plot(histo_1)
 plt.xlim([0, 256])
 plt.show()
 
-beach = cv2.imread('images/beach.jpg', cv2.IMREAD_GRAYSCALE)
-histo_2 = cv2.calcHist([beach], None, None, [256], [0, 256])
-plt.plot(histo_2)
-plt.xlim([0, 256])
-plt.show()
+# beach = cv2.imread('images/beach.jpg', cv2.IMREAD_GRAYSCALE)
+# histo_2 = cv2.calcHist([beach], None, None, [256], [0, 256])
+# plt.plot(histo_2)
+# plt.xlim([0, 256])
+# plt.show()
 
 dog = cv2.imread('images/dog.jpg', cv2.IMREAD_GRAYSCALE)
 histo_3 = cv2.calcHist([dog], None, None, [256], [0, 256])
